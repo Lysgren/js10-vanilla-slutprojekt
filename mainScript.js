@@ -16,7 +16,9 @@ let renderBeer = async randomBeerNumber => {
   let randomBeer = "https://api.punkapi.com/v2/beers/" + randomBeerNumber
 
   let beerData = await getData(randomBeer)
-  console.log(beerData[0].name)
+  document.querySelectorAll(".beer-name").innerHTML=beerData[0].name
+  document.querySelectorAll(".beer-img").src=beerData[0].image_url
+  document.querySelector(".description").innerHTML=beerData[0].description
 }
 
 let main = () => {
