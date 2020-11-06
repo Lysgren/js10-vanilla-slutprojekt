@@ -68,10 +68,16 @@ let beerInfoPage = beer => {
   console.log(beer[0].ingredients.hops[0,1,2])
 
 
-  //console.log("Beer ingredients: " + beer[0].ingredients)
+  let hops = []
+  if (beer[0].ingredients.hops[0].name != undefined) {
+    for (let j = 0; j < beer[0].ingredients.hops.length; j++) {
+      hops.push(beer[0].ingredients.hops[j].name)
+    }
+  }
 
-  //console.log(`Beer food pairing: ${beer[0].food_pairing}`)
-  //console.log(`Beer brewers tips: ${beer[0].brewers_tips}`)
+  console.log(`Beer hops: ${hops}`)
+  console.log(`Beer food pairing: ${beer[0].food_pairing}`)
+  console.log(`Beer brewers tips: ${beer[0].brewers_tips}`)
 }
 
 let main = () => {
