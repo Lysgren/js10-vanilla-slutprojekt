@@ -13,18 +13,14 @@ let writeDataInDOM = (position, item) => {
 }
 
 let randomBeer = async () => {
-  let randomBeer = "https://api.punkapi.com/v2/beers/random"
-
-  let beerData = await getData(randomBeer)
+  let beerData = await getData("https://api.punkapi.com/v2/beers/random")
+  document.querySelector(".beer-name").innerHTML = beerData[0].name
   
-  // console.log(beerData[0].name)
-  // console.log(beerData[0])
+  let img = document.querySelector(".beer-img")
+  img.src = beerData[0].image_url
+  document.querySelector(".description").innerHTML = beerData[0].description
 
-  document.querySelectorAll(".beer-name").innerHTML=beerData[0].name
-  document.querySelectorAll(".beer-img").src = beerData[0].image_url
-  document.querySelector(".description").innerHTML=beerData[0].description
-
-  beerInfoPage(beerData)
+  // beerInfoPage(beerData)
 }
 
 let beerSearch = async () => {

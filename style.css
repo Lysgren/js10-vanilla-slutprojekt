@@ -2,22 +2,31 @@ body {
   margin: 0%;
 }
 .wrapper{
-  max-width: 1440px;
+  margin-left: 5%;
+  max-width: 100%;
+  margin-right: 5%;
 }
 main{
   background-image: url(img/bear.jpg);
-  max-height: 1000px;
+  max-height: 100%;
   display: flex;
+  z-index: -2;
 }
+
+.card-wrapper {
+  position: relative;
+}
+
 .card{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
-  width: 250px;
+  border-radius: 15px;
+  height: calc(200px + 30vh);
+  width: calc(100px + 30vh);
   background-color: white;
-  margin: 100px auto 80px 200px;
+  margin: 100px auto 80px 20%;
 }
 .card-header{
   background-color: lightgray;
@@ -42,4 +51,7 @@ button.random-beer{
   border: none;
   background: none;
   margin-left: 150px;
+}
+button.random-beer:hover{
+  cursor: pointer;
 }
