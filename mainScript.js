@@ -20,8 +20,11 @@ let randomBeer = async () => {
   // console.log(beerData[0].name)
   // console.log(beerData[0])
 
-  document.querySelectorAll(".beer-name").innerHTML=beerData[0].name
-  document.querySelectorAll(".beer-img").src=beerData[0].image_url
+  document.querySelector(".beer-name").innerHTML=beerData[0].name
+  console.log(beerData[0].image_url)
+  let img=document.querySelector(".beer-img")
+  img.src=beerData[0].image_url
+  // document.querySelector(".beer-img").src=beerData[0].image_url
   document.querySelector(".description").innerHTML=beerData[0].description
 
   beerInfoPage(beerData)
@@ -39,19 +42,31 @@ let beerSearch = async () => {
 }
 
 let beerInfoPage = beer => {
+  // document.querySelector(".bear-img-info").src=beer[0].image_url
+  document.querySelector(".description").innerHTML=beer[0].description
+  // <img class="beer-img" src="" alt="">
+  //     <p class="beer-name"></p>
+  //     <p class="description"></p>
+  //     <p class="alcohol-by-volume"></p>
+  //     <p class="volume"></p>
+  //     <p class="ingredients"></p>
+  //     <p class="hops"></p>
+  //     <p class="food-pairing"></p>
+  //     <p class="brewers tips"></p>
 
   console.log(beer[0])
   //console.log(`Beer name: ${beer[0].name}`)
-  //console.log(`Beer description: ${beer[0].description}`)
+  //console.log(`Beer description: ${}`)
   //console.log(`Beer image(url): ${beer[0].image_url}`)
   //console.log(`Beer alcohol by volume: ${beer[0].abv}`)
   //console.log(`Beer volume: ${beer[0].volume.value} ${beer[0].volume.unit}`)
   
   //console.log(`Beer ingredients: ${beer[0].ingredients}`)
-  console.log(`Beer hops: ${beer[0].ingredients.hops}`)
+  // console.log(`Beer hops: ${beer[0].ingredients.hops}`)
   console.log("Beer hops: " + beer[0].ingredients.hops)
   console.log(beer[0].ingredients.hops.length)
-  console.log(beer[0].ingredients.hops[0])
+  console.log(beer[0].ingredients.hops[0,1,2])
+
 
   //console.log("Beer ingredients: " + beer[0].ingredients)
 
