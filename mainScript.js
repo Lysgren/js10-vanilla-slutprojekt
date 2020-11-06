@@ -19,9 +19,9 @@ let randomBeer = async () => {
   console.log(beerData[0].name)
   // console.log(beerData[0])
 
-  document.querySelectorAll(".beer-name").innerHTML=beerData[0].name
-  document.querySelectorAll(".beer-img").src=beerData[0].image_url
-  document.querySelector(".description").innerHTML=beerData[0].description
+  //document.querySelectorAll(".beer-name").innerHTML=beerData[0].name
+  // document.querySelectorAll(".beer-img").src=beerData[0].image_url
+  // document.querySelector(".description").innerHTML=beerData[0].description
 }
 
 let beerSearch = async () => {
