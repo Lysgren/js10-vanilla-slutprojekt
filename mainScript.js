@@ -21,7 +21,7 @@ let randomBeer = async () => {
   // console.log(beerData[0])
 
   document.querySelectorAll(".beer-name").innerHTML=beerData[0].name
-  document.querySelectorAll(".beer-img").src=beerData[0].image_url
+  document.querySelectorAll(".beer-img").src = beerData[0].image_url
   document.querySelector(".description").innerHTML=beerData[0].description
 
   beerInfoPage(beerData)
@@ -39,8 +39,6 @@ let beerSearch = async () => {
 }
 
 let beerInfoPage = beer => {
-
-  console.log(beer[0])
   console.log(`Beer name: ${beer[0].name}`)
   console.log(`Beer description: ${beer[0].description}`)
   console.log(`Beer image(url): ${beer[0].image_url}`)
@@ -48,27 +46,17 @@ let beerInfoPage = beer => {
   console.log(`Beer volume: ${beer[0].volume.value} ${beer[0].volume.unit}`)
 
   let ingredients = []
-  if (beer[0].ingredients.malt[0].name != undefined) {
-    console.log("There is malt!")
-    for (let i = 0; i < beer[0].ingredients.hops.length; i++) {
-      ingredients.push(beer[0].ingredients.malt[i].name)
-    }
+  for (let i = 0; i < beer[0].ingredients.malt.length; i++) {
+    ingredients.push(beer[0].ingredients.malt[i].name)
   }
-
-  if (beer[0].ingredients.yeast != undefined) {
-    ingredients.push(beer[0].ingredients.yeast)
-  }
-
-  console.log(`Beer ingredients: ${ingredients}`)
+  console.log(`Ingredients hops: ${ingredients}`)
 
   let hops = []
-  if (beer[0].ingredients.hops[0].name != undefined) {
-    for (let j = 0; j < beer[0].ingredients.hops.length; j++) {
-      hops.push(beer[0].ingredients.hops[j].name)
-    }
+  for (let j = 0; j < beer[0].ingredients.hops.length; j++) {
+    hops.push(beer[0].ingredients.hops[j].name)
   }
-
   console.log(`Beer hops: ${hops}`)
+
   console.log(`Beer food pairing: ${beer[0].food_pairing}`)
   console.log(`Beer brewers tips: ${beer[0].brewers_tips}`)
 }
