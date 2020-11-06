@@ -42,40 +42,24 @@ let beerSearch = async () => {
 }
 
 let beerInfoPage = beer => {
-  // document.querySelector(".bear-img-info").src=beer[0].image_url
-  document.querySelector(".description").innerHTML=beer[0].description
-  // <img class="beer-img" src="" alt="">
-  //     <p class="beer-name"></p>
-  //     <p class="description"></p>
-  //     <p class="alcohol-by-volume"></p>
-  //     <p class="volume"></p>
-  //     <p class="ingredients"></p>
-  //     <p class="hops"></p>
-  //     <p class="food-pairing"></p>
-  //     <p class="brewers tips"></p>
+  console.log(`Beer name: ${beer[0].name}`)
+  console.log(`Beer description: ${beer[0].description}`)
+  console.log(`Beer image(url): ${beer[0].image_url}`)
+  console.log(`Beer alcohol by volume: ${beer[0].abv}`)
+  console.log(`Beer volume: ${beer[0].volume.value} ${beer[0].volume.unit}`)
 
-  console.log(beer[0])
-  //console.log(`Beer name: ${beer[0].name}`)
-  //console.log(`Beer description: ${}`)
-  //console.log(`Beer image(url): ${beer[0].image_url}`)
-  //console.log(`Beer alcohol by volume: ${beer[0].abv}`)
-  //console.log(`Beer volume: ${beer[0].volume.value} ${beer[0].volume.unit}`)
-  
-  //console.log(`Beer ingredients: ${beer[0].ingredients}`)
-  // console.log(`Beer hops: ${beer[0].ingredients.hops}`)
-  console.log("Beer hops: " + beer[0].ingredients.hops)
-  console.log(beer[0].ingredients.hops.length)
-  console.log(beer[0].ingredients.hops[0,1,2])
-
+  let ingredients = []
+  for (let i = 0; i < beer[0].ingredients.malt.length; i++) {
+    ingredients.push(beer[0].ingredients.malt[i].name)
+  }
+  console.log(`Ingredients hops: ${ingredients}`)
 
   let hops = []
-  if (beer[0].ingredients.hops[0].name != undefined) {
-    for (let j = 0; j < beer[0].ingredients.hops.length; j++) {
-      hops.push(beer[0].ingredients.hops[j].name)
-    }
+  for (let j = 0; j < beer[0].ingredients.hops.length; j++) {
+    hops.push(beer[0].ingredients.hops[j].name)
   }
-
   console.log(`Beer hops: ${hops}`)
+
   console.log(`Beer food pairing: ${beer[0].food_pairing}`)
   console.log(`Beer brewers tips: ${beer[0].brewers_tips}`)
 }
