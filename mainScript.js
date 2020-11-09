@@ -15,10 +15,16 @@ let randomBeer = async () => {
   let beerData = await getData("https://api.punkapi.com/v2/beers/random")
   document.querySelector(".beer-name").innerHTML = beerData[0].name
   
-  let img = document.querySelector(".beer-img")
-  img.src = beerData[0].image_url
-  document.querySelector(".description").innerHTML = beerData[0].description
+  if (beerData[0].image_url == null) {
+    let img = document.querySelector(".beer-img")
+    img.src = "/img/beerBottle.jpg"
+  }
+  else {
+    let img = document.querySelector(".beer-img")
+    img.src = beerData[0].image_url
+  }
 
+  document.querySelector(".description").innerHTML = beerData[0].description
   beerInfoPage(beerData)
 }
 
@@ -26,13 +32,24 @@ let beerSearch = async () => {
   let value = document.querySelector("input.search-beer-input").value.toLowerCase()
   value = value.replace(/\s/g, '_')
 
-  let searchedBeer = await getData("https://api.punkapi.com/v2/beers?beer_name=" + value)
-  console.log(searchedBeer)
+  if (value.length > 0) {
+    let beerName = await getData("https://api.punkapi.com/v2/beers?beer_name=" + value)
+    //let beerHops = await getData("https://api.punkapi.com/v2/beers?hops=" + value)
+    //let beerMalt = await getData("https://api.punkapi.com/v2/beers?malt=" + value)
+    //let brewedBefore = await getData("https://api.punkapi.com/v2/beers?brewed_before=" + value)
+    //let brewedAfter = await getData("https://api.punkapi.com/v2/beers?brewed_after=" + value)
+  
+    console.log(beerName)
+    let list = document.querySelector(".beer-list")
+    let children = list.children
 
-  for (let i = 0; i < searchedBeer.length; i++) {
-    // console.log(searchedBeer[i].name)
-    if (i == 10) {
-      console.log("Ten beers!")
+    for (let i = 0; i < beerName.length; i++) {
+      // console.log(searchedBeer[i].name)
+      children[i].innerHTML = beerName[i].name
+      if (i == 10) {
+        console.log("Ten beers!")
+        break
+      }
     }
   }
 }
