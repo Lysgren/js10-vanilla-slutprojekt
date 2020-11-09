@@ -9,7 +9,6 @@ let getData = async requestedData => {
 let writeDataInDOM = (requestedElement, str) => {
   let element = document.querySelector(requestedElement);
   element.innerHTML = str
-  
 }
 
 let randomBeer = async () => {
@@ -36,10 +35,12 @@ let beerSearch = async page => {
   if (value.length > 2) {
     let beers = await getData("https://api.punkapi.com/v2/beers?beer_name=" + value + "&page=" + page + "&per_page=10")
 
-    console.log(beers.length)
+    //console.log("Length: " + beers.length + " Page: " + page)
 
     if (beers.length == 0) {
-      beers = await getData("https://api.punkapi.com/v2/beers?beer_name=" + value + "&page=" + (page - 1) + "&per_page=10")
+      page -= 1
+      console.error("Iterated. " + "Length: " + beers.length + " Page: " + page)
+      beerSearch(page)
     }
 
     //let beerHops = await getData("https://api.punkapi.com/v2/beers?hops=" + value)
@@ -47,7 +48,6 @@ let beerSearch = async page => {
     //let brewedBefore = await getData("https://api.punkapi.com/v2/beers?brewed_before=" + value)
     //let brewedAfter = await getData("https://api.punkapi.com/v2/beers?brewed_after=" + value)
   
-    console.log(beers)
     let list = document.querySelector(".beer-list")
     list.innerHTML = '';
     // let children = list.children
@@ -98,7 +98,6 @@ let main = () => {
 
   document.querySelector(".button-minus").addEventListener("click", function() {
     page = (page > 1) ? page -= 1 : 1
-
     beerSearch(page)
   });
 

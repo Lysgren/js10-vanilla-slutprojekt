@@ -108,3 +108,59 @@ p.beer-name-info{
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
+
+.wrap{
+  width: 30%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 50px;
+}
+
+.search-beer-input {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 10px;
+  height: 20px;
+  color: #9DBFAF;
+}
+
+.search-beer-input{
+  color: #00B4CC;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.search-button {
+  width: 110px;
+  height: 46px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.button-plus {
+  border-radius: 0 5px 5px 0;
+}
+
+.button-minus {
+  border-radius: 5px 0 0px 5px;
+}
+
+.beer-list {
+  list-style-type: none;
+  margin-left: 10%;
+  color: #00B4CC;
+  font-family: "Roboto", "Times New Roman", Times, serif;
+  }
+
+.beer-list li {
+  margin: 10px 0px 5px;
+}
