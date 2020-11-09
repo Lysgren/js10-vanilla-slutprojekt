@@ -15,13 +15,13 @@ header{
   display: flex;
   flex-direction: row;
 }
-ul{
+.head ul{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   
 }
-li{
+.head ul li{
   list-style-type: none;
   border: 20px solid pink;
   border-top-width: 0px;
