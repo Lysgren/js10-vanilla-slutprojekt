@@ -6,10 +6,9 @@ let getData = async requestedData => {
   return data
 }
 
-let writeDataInDOM = (position, item) => {
-  let data = document.createElement("div");
-  data.innerHTML = item
-  position.append(data)
+let writeDataInDOM = (requestedElement, str) => {
+  let element = document.querySelector(requestedElement);
+  element.innerHTML = str
 }
 
 let randomBeer = async () => {
@@ -20,7 +19,7 @@ let randomBeer = async () => {
   img.src = beerData[0].image_url
   document.querySelector(".description").innerHTML = beerData[0].description
 
-  // beerInfoPage(beerData)
+  beerInfoPage(beerData)
 }
 
 let beerSearch = async () => {
@@ -28,33 +27,35 @@ let beerSearch = async () => {
   value = value.replace(/\s/g, '_')
 
   let searchedBeer = await getData("https://api.punkapi.com/v2/beers?beer_name=" + value)
+  console.log(searchedBeer)
 
   for (let i = 0; i < searchedBeer.length; i++) {
-    console.log(searchedBeer[i].name)
+    // console.log(searchedBeer[i].name)
+    if (i == 10) {
+      console.log("Ten beers!")
+    }
   }
 }
 
 let beerInfoPage = beer => {
-  console.log(`Beer name: ${beer[0].name}`)
-  console.log(`Beer description: ${beer[0].description}`)
-  console.log(`Beer image(url): ${beer[0].image_url}`)
-  console.log(`Beer alcohol by volume: ${beer[0].abv}`)
-  console.log(`Beer volume: ${beer[0].volume.value} ${beer[0].volume.unit}`)
-
   let ingredients = []
   for (let i = 0; i < beer[0].ingredients.malt.length; i++) {
     ingredients.push(beer[0].ingredients.malt[i].name)
   }
-  console.log(`Ingredients hops: ${ingredients}`)
 
   let hops = []
   for (let j = 0; j < beer[0].ingredients.hops.length; j++) {
     hops.push(beer[0].ingredients.hops[j].name)
   }
-  console.log(`Beer hops: ${hops}`)
 
-  console.log(`Beer food pairing: ${beer[0].food_pairing}`)
-  console.log(`Beer brewers tips: ${beer[0].brewers_tips}`)
+  writeDataInDOM(".beer-name-info", beer[0].name)
+  writeDataInDOM(".description", beer[0].description)
+  writeDataInDOM(".alcohol-by-volume", `Beer alcohol by volume: ${beer[0].abv}`)
+  writeDataInDOM(".volume", `Beer volume: ${beer[0].volume.value} ${beer[0].volume.unit}`)
+  writeDataInDOM(".ingredients", `Ingredients: ${ingredients}`)
+  writeDataInDOM(".hops", `Beer hops: ${hops}`)
+  writeDataInDOM(".food-pairing", `Beer food pairing: ${beer[0].food_pairing}`)
+  writeDataInDOM(".brewers-tips", `Beer brewers tips: ${beer[0].brewers_tips}`)
 }
 
 let main = () => {
