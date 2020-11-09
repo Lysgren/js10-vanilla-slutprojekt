@@ -12,48 +12,56 @@
     <meta name="Description" content="JavaScript">
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
   <div class="wrapper">
-    <header class="head"> 
-      <input class="search-beer-input">
+    <header> 
+      <div class="head">
+        <ul>
+          <li>Home</li>
+          <li>Landing page</li>
+          <li>Beer info page</li>
+          <li>Search</li>
+        </ul>
+      <div class="search">
+        <input class="search-beer-input">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+      </div>
+      
+      <h1>Let´t have a drink</h1>
     </header>
 
     <main class="container">
-      <div class="margin">
-
-       <div class="card-wrapper">
-
-      <div class="card">
-        <div class="card-header">
-          <img class="beer-img"  src="" alt="">
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-header">
+            <img class="beer-img"  src="" alt="">
+          </div>
+          <div class="card-body">
+            <h1 class="beer-name">bear</h1>
+            <button class="random-beer">See more > </button>
+          </div>
         </div>
-        <div class="card-body">
-          <h1 class="beer-name">bear</h1>
-          <button class="random-beer">See more > </button>
       </div>
-
-      </div>
-    </div> 
-
-      </div>
-
     </main>
 
     <footer class="beer-info">
+      <div class="beer-details">
+        <p class="beer-name-info"></p>
+        <p class="description"></p>
+        <p class="alcohol-by-volume"></p>
+        <p class="volume"></p>
+        <p class="ingredients"></p>
+        <p class="hops"></p>
+        <p class="food-pairing"></p>
+        <p class="brewers tips"></p>
+      </div>
       <img class="beer-img-info" src="" alt="">
-      <p class="beer-name-info"></p>
-      <p class="description"></p>
-      <p class="alcohol-by-volume"></p>
-      <p class="volume"></p>
-      <p class="ingredients"></p>
-      <p class="hops"></p>
-      <p class="food-pairing"></p>
-      <p class="brewers tips"></p>
-
     </footer>
   </div>
 
