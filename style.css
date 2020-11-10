@@ -114,7 +114,7 @@ p.beer-name-info{
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .search-beer-input {
@@ -123,10 +123,6 @@ p.beer-name-info{
   padding: 10px;
   height: 20px;
   color: #9DBFAF;
-}
-
-.search-beer-input{
-  color: #00B4CC;
 }
 
 .search {

@@ -38,9 +38,8 @@ let beerSearch = async page => {
     //console.log("Length: " + beers.length + " Page: " + page)
 
     if (beers.length == 0) {
-      page -= 1
-      console.error("Iterated. " + "Length: " + beers.length + " Page: " + page)
-      beerSearch(page)
+      page--
+      return page
     }
 
     //let beerHops = await getData("https://api.punkapi.com/v2/beers?hops=" + value)
@@ -50,12 +49,11 @@ let beerSearch = async page => {
   
     let list = document.querySelector(".beer-list")
     list.innerHTML = '';
-    // let children = list.children
 
     for (let i = 0; i < beers.length; i++) {
-      //children[i].innerHTML = beers[i].name
+      let number = (page == 1) ? i + 1 : page * 10 + i - 9
       let listItem = document.createElement("li")
-      listItem.innerHTML = beers[i].name
+      listItem.innerHTML = number + " " + beers[i].name
       list.append(listItem)
     }
   }
@@ -82,7 +80,6 @@ let beerInfoPage = beer => {
   writeDataInDOM(".brewers-tips", `Beer brewers tips: ${beer[0].brewers_tips}`)
   // let imgSrc=document.querySelector(".beer-img-info")
   // imgSrc.src=beer[0].image_url
-  
 }
 
 let main = () => {
