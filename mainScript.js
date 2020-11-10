@@ -33,7 +33,7 @@ let beerSearch = async page => {
   value = value.replace(/\s/g, '_')
 
   if (value.length > 2) {
-    let beers = await getData("https://api.punkapi.com/v2/beers?beer_name=" + value + "&page=" + page + "&per_page=10")
+    let beers = await getData("https://api.punkapi.com/v2/beers?beer_name=" + value + "&page=" + page + "&per_page=5")
 
     //console.log("Length: " + beers.length + " Page: " + page)
 

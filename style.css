@@ -93,6 +93,9 @@ button.random-beer{
 button.random-beer:hover{
   cursor: pointer;
 }
+li:hover{
+  cursor: alias;
+}
 
 /*footer----------*/
 footer{
